@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TextMetaField extends StatelessWidget {
-  final String hintText;
-
-  const TextMetaField({Key? key, required this.hintText}) : super(key: key);
+class TextGoalField extends StatelessWidget {
+  const TextGoalField({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,17 +9,19 @@ class TextMetaField extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(9),
-        border: Border.all(color: Colors.black),
+        border: Border.all(color: const Color(0xFFE4E4E4)),
       ),
       child: SizedBox(
-        width: 100,
+        width: 64,
+        height: 18,
         child: TextFormField(
           keyboardType: TextInputType.number,
           textAlign: TextAlign.center,
-          decoration: InputDecoration(
-            hintText: hintText,
+          decoration: const InputDecoration(
+            hintText: "un.",
+            hintStyle: TextStyle(color: Color(0xFFE4E4E4)),
             border: InputBorder.none,
-            contentPadding: const EdgeInsets.all(2),
+            contentPadding: EdgeInsets.all(2),
             isDense: true,
           ),
           validator: (value) {
