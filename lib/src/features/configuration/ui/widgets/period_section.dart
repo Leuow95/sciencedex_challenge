@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sciencedex_challenge/src/features/configuration/ui/widgets/period_form_dialog.dart';
 
 class PeriodSection extends StatelessWidget {
   final List<String> periods;
@@ -36,7 +37,9 @@ class PeriodSection extends StatelessWidget {
         Align(
           alignment: Alignment.centerRight,
           child: ElevatedButton(
-            onPressed: null,
+            onPressed: () {
+              showDialog(context: context, builder: (context) => const PeriodFormDialog());
+            },
             style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFF0F278B))),
             child: const Text(
               "Adicionar Periodo",
