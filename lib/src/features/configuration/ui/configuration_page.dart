@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sciencedex_challenge/src/features/configuration/ui/widgets/search_section.dart';
 
+import 'widgets/logout_section.dart';
 import 'widgets/period_section.dart';
 
 class ConfigurationPage extends StatelessWidget {
@@ -23,6 +24,7 @@ class ConfigurationPage extends StatelessWidget {
             SizedBox(height: 16),
             Divider(height: 1),
             PeriodSection(periods: periods),
+            LogoutSection(),
           ],
         ),
       ),
