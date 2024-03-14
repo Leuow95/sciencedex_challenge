@@ -38,7 +38,10 @@ class PeriodSection extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: ElevatedButton(
             onPressed: () {
-              showDialog(context: context, builder: (context) => const PeriodFormDialog());
+              showDialog(
+                context: context,
+                builder: (context) => const PeriodFormDialog(),
+              );
             },
             style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFF0F278B))),
             child: const Text(
