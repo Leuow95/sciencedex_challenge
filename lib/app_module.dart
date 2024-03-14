@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sciencedex_challenge/src/features/configuration/configuration_module.dart';
-import 'package:sciencedex_challenge/src/features/configuration/configutarion_page.dart';
+import 'package:sciencedex_challenge/src/features/configuration/ui/configuration_page.dart';
 
 class AppModule extends Module {
   @override
