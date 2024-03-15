@@ -1,11 +1,11 @@
-class Configuration {
+class PeriodEntity {
   final String name;
   final DateTime startDate;
   final DateTime endDate;
   final int goal1;
   final int goal2;
 
-  Configuration({
+  PeriodEntity({
     required this.name,
     required this.startDate,
     required this.endDate,
@@ -13,8 +13,8 @@ class Configuration {
     required this.goal2,
   });
 
-  factory Configuration.fromJson(Map<String, dynamic> json) {
-    return Configuration(
+  factory PeriodEntity.fromJson(Map<String, dynamic> json) {
+    return PeriodEntity(
       name: json["name"],
       startDate: json["startDate"],
       endDate: json["endDate"],
