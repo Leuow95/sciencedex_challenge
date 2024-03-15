@@ -16,8 +16,8 @@ class PeriodEntity {
   factory PeriodEntity.fromJson(Map<String, dynamic> json) {
     return PeriodEntity(
       name: json["name"],
-      startDate: json["startDate"],
-      endDate: json["endDate"],
+      startDate: DateTime.parse(json["startDate"]),
+      endDate: DateTime.parse(json["endDate"]),
       goal1: json["goal1"],
       goal2: json["goal2"],
     );
@@ -26,8 +26,8 @@ class PeriodEntity {
   Map<String, dynamic> toJson() {
     return {
       "name": name,
-      "startDate": startDate,
-      "endDate": endDate,
+      "startDate": startDate.toIso8601String(),
+      "endDate": endDate.toIso8601String(),
       "goal1": goal1,
       "goal2": goal2,
     };
