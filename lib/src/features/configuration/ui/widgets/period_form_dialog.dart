@@ -89,5 +89,6 @@ class _PeriodFormDialogState extends State<PeriodFormDialog> {
       goal1: goal1,
       goal2: goal2,
     ));
+    Modular.to.pop();
   }
 }
