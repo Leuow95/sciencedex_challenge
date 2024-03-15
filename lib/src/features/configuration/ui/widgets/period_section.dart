@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sciencedex_challenge/src/features/configuration/entities/period_entity.dart';
 import 'package:sciencedex_challenge/src/features/configuration/ui/widgets/period_form_dialog.dart';
 
 class PeriodSection extends StatelessWidget {
-  final List<String> periods;
+  final List<PeriodEntity> periods;
   const PeriodSection({
     super.key,
     required this.periods,
@@ -25,7 +26,7 @@ class PeriodSection extends StatelessWidget {
             itemBuilder: (context, index) {
               return ListTile(
                 title: Text(
-                  periods[index],
+                  periods[index].name,
                   style: const TextStyle(color: Colors.white),
                 ),
                 textColor: Colors.white,
