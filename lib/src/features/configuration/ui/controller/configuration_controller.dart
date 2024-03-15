@@ -21,4 +21,10 @@ class ConfigurationController extends ValueNotifier<ConfigurationState> {
     await service.addPeriod(period: period);
     await getPeriods();
   }
+
+  Future<void> deletePeriod(PeriodEntity period) async {
+    value = ConfigurationLoadingState();
+    await service.deletePeriod(period: period);
+    await getPeriods();
+  }
 }

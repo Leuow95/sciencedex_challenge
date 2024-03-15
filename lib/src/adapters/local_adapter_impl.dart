@@ -64,8 +64,19 @@ class LocalAdapterImpl implements LocalAdapter {
   }
 
   @override
-  Future delete() {
-    throw UnimplementedError();
+  Future delete(String name) async {
+    var sharedPrefs = await SharedPreferences.getInstance();
+
+    var periodsListString = sharedPrefs.getStringList(SharedPrefsKeys.configuration) ?? [];
+
+    var periodsList =
+        periodsListString.map((periodString) => jsonDecode(periodString) as Map<String, dynamic>).toList();
+
+    periodsList.removeWhere((period) => period["name"] == name);
+
+    var updatedPeriodsListString = periodsList.map((period) => jsonEncode(period)).toList();
+
+    await sharedPrefs.setStringList(SharedPrefsKeys.configuration, updatedPeriodsListString);
   }
 
   @override

@@ -10,5 +10,5 @@ abstract class LocalAdapter {
   Future clear();
 
   Future update();
-  Future delete();
+  Future delete(String name);
 }

@@ -80,8 +80,8 @@ class _UpdateFormDialog extends State<UpdateFormDialog> {
           ),
         ),
         actions: [
-          CancelButton(onSubmit: () => _onPop),
           AddPeriodButton(onSubmit: () => onSubmit),
+          CancelButton(period: widget.period, onSubmit: (() => deletePeriod)),
         ],
         actionsAlignment: MainAxisAlignment.center,
       ),
@@ -100,7 +100,8 @@ class _UpdateFormDialog extends State<UpdateFormDialog> {
     ));
   }
 
-  _onPop() {
+  deletePeriod(PeriodEntity periodEntity) {
+    configurationController.deletePeriod(periodEntity);
     Modular.to.pop();
   }
 }

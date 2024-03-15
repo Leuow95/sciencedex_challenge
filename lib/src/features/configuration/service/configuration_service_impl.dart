@@ -23,4 +23,9 @@ class ConfigurationServiceImpl implements ConfigurationService {
       data: period,
     );
   }
+
+  @override
+  Future<void> deletePeriod({required PeriodEntity period}) async {
+    await localAdapter.delete(period.name);
+  }
 }
