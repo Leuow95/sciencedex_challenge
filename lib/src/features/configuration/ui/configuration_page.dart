@@ -41,29 +41,31 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
         title: const Text('Configurações'),
         leading: const Icon(Icons.arrow_back_ios),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ValueListenableBuilder(
-          valueListenable: configurationController,
-          builder: ((context, state, child) {
-            if (state is ConfigurationLoadingState) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            if (state is ConfigurationLoadedState) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SearchSection(),
-                  const SizedBox(height: 16),
-                  const Divider(height: 1),
-                  // PeriodSection(periods: state.periods),
-                  PeriodSection(periods: periodsMock),
-                  const LogoutSection(),
-                ],
-              );
-            }
-            return const SizedBox.shrink();
-          }),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ValueListenableBuilder(
+            valueListenable: configurationController,
+            builder: ((context, state, child) {
+              if (state is ConfigurationLoadingState) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (state is ConfigurationLoadedState) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SearchSection(),
+                    const SizedBox(height: 16),
+                    const Divider(height: 1),
+                    // PeriodSection(periods: state.periods),
+                    PeriodSection(periods: periodsMock),
+                    const LogoutSection(),
+                  ],
+                );
+              }
+              return const SizedBox.shrink();
+            }),
+          ),
         ),
       ),
     );
