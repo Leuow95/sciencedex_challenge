@@ -14,6 +14,9 @@ class ConfigurationServiceImpl implements ConfigurationService {
   @override
   Future<List<PeriodEntity>> getConfiguration() async {
     final response = await localAdapter.get(SharedPrefsKeys.configuration);
+
+    if (response == null) return [];
+
     final List<dynamic> jsonList = jsonDecode(response);
     final periods = jsonList.map((json) => PeriodEntity.fromJson(response)).toList();
 
