@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:sciencedex_challenge/src/features/configuration/entities/period_entity.dart';
 import 'package:sciencedex_challenge/src/features/configuration/ui/widgets/period_form_dialog.dart';
 
@@ -31,13 +32,23 @@ class PeriodSection extends StatelessWidget {
               : ListView.builder(
                   itemCount: periods.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(
-                        periods[index].name,
-                        style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    return Material(
+                      color: Colors.transparent,
+                      child: Card(
+                        child: ListTile(
+                          shape: RoundedRectangleBorder(
+                            side: const BorderSide(color: Colors.black, width: 0.3),
+                            borderRadius: BorderRadius.circular(9),
+                          ),
+                          title: Text(
+                            periods[index].name,
+                            style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                          ),
+                          trailing:
+                              Text("${formatDate(periods[index].startDate)} a ${formatDate(periods[index].endDate)}"),
+                          tileColor: Colors.white,
+                        ),
                       ),
-                      textColor: Colors.white,
-                      tileColor: Colors.white,
                     );
                   },
                 ),
@@ -62,5 +73,9 @@ class PeriodSection extends StatelessWidget {
         )
       ],
     );
+  }
+
+  formatDate(DateTime date) {
+    return DateFormat("dd/MM/yyyy").format(date);
   }
 }
