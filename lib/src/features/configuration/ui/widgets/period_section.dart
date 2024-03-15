@@ -14,7 +14,12 @@ class PeriodSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Período"),
+        const SizedBox(height: 8),
+        const Text(
+          "Períodos",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+        ),
+        const SizedBox(height: 8),
         Container(
           height: 400,
           decoration: BoxDecoration(
