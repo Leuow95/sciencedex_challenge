@@ -9,7 +9,7 @@ import '../entities/period_entity.dart';
 class ConfigurationServiceImpl implements ConfigurationService {
   final LocalAdapter localAdapter;
 
-  ConfigurationServiceImpl(this.localAdapter);
+  ConfigurationServiceImpl({required this.localAdapter});
 
   @override
   Future<List<PeriodEntity>> getConfiguration() async {
