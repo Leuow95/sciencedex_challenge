@@ -4,7 +4,7 @@ import 'package:sciencedex_challenge/src/adapters/local_adapter.dart';
 import 'package:sciencedex_challenge/src/features/configuration/service/configuration_service.dart';
 
 import '../../../adapters/local_adapter_impl.dart';
-import '../entities/configuration_entity.dart';
+import '../entities/period_entity.dart';
 
 class ConfigurationServiceImpl implements ConfigurationService {
   final LocalAdapter localAdapter;
