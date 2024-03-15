@@ -1,11 +1,17 @@
+import '../../entities/period_entity.dart';
+
 abstract class ConfigurationState {}
 
-class ConfigurationInitialState {}
+class ConfigurationInitialState implements ConfigurationState {}
 
-class ConfigurationLoadingState {}
+class ConfigurationLoadingState implements ConfigurationState {}
 
-class ConfigurationLoadedState {}
+class ConfigurationLoadedState implements ConfigurationState {
+  final List<PeriodEntity> periods;
 
-class ConfigurationFailureState {}
+  ConfigurationLoadedState(this.periods);
+}
 
-class ConfigurationEmptyState {}
+class ConfigurationFailureState implements ConfigurationState {}
+
+class ConfigurationEmptyState implements ConfigurationState {}
