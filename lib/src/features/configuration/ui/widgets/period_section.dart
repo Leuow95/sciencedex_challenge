@@ -19,7 +19,7 @@ class PeriodSection extends StatelessWidget {
           height: 400,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(9),
-            color: const Color.fromARGB(255, 22, 61, 216),
+            color: const Color(0xFFF5F6FA),
           ),
           child: ListView.builder(
             itemCount: periods.length,
@@ -27,7 +27,7 @@ class PeriodSection extends StatelessWidget {
               return ListTile(
                 title: Text(
                   periods[index].name,
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                 ),
                 textColor: Colors.white,
                 tileColor: Colors.white,

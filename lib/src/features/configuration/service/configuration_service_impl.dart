@@ -22,4 +22,12 @@ class ConfigurationServiceImpl implements ConfigurationService {
 
     return periods;
   }
+
+  @override
+  Future<void> addPeriod({required PeriodEntity period}) async {
+    await localAdapter.save(
+      key: SharedPrefsKeys.configuration,
+      data: period.toJson(),
+    );
+  }
 }

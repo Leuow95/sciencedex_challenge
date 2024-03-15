@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:sciencedex_challenge/src/adapters/local_adapter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,8 +20,18 @@ class LocalAdapterImpl implements LocalAdapter {
   }
 
   @override
-  Future save() {
-    throw UnimplementedError();
+  Future<T> save<T>({
+    required String key,
+    required T data,
+  }) async {
+    try {
+      var sharedPrefs = await SharedPreferences.getInstance();
+      final json = jsonEncode(data);
+      sharedPrefs.setString(key, json);
+      return data;
+    } catch (e) {
+      throw Exception("Não foi possível adicionar o perído");
+    }
   }
 
   @override
