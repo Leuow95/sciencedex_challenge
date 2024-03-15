@@ -64,6 +64,7 @@ class _PeriodFormDialogState extends State<PeriodFormDialog> {
                     })),
                 const SizedBox(height: 16),
                 GoalSection(
+                  hasBorder: true,
                   onGoalsChanged: (String? goal1Value, String? goal2Value) {
                     setState(() {
                       goal1 = goal1Value != null ? int.parse(goal1Value) : goal1;
@@ -88,6 +89,7 @@ class _PeriodFormDialogState extends State<PeriodFormDialog> {
       endDate: endDate,
       goal1: goal1,
       goal2: goal2,
+      category: selectedCategory,
     ));
     Modular.to.pop();
   }

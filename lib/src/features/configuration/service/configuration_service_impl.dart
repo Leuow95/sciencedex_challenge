@@ -13,8 +13,6 @@ class ConfigurationServiceImpl implements ConfigurationService {
   Future<List<PeriodEntity>> getConfiguration() async {
     final periods = await localAdapter.getAllPeriods(SharedPrefsKeys.configuration);
 
-    // final periods = response.map((json) => PeriodEntity.fromJson(json as Map<String, dynamic>)).toList();
-
     return periods;
   }
 

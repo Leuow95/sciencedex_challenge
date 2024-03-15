@@ -60,6 +60,7 @@ class _AlertDataSectionState extends State<AlertDataSection> {
               onChanged: (String? newValue) {
                 setState(() {
                   selectedCategory = newValue;
+                  widget.onSubmitData(startDate, endDate, selectedCategory);
                 });
               },
               items: categories.map<DropdownMenuItem<String>>((String category) {

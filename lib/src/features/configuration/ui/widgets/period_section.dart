@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sciencedex_challenge/src/features/configuration/entities/period_entity.dart';
 import 'package:sciencedex_challenge/src/features/configuration/ui/widgets/period_form_dialog.dart';
+import 'package:sciencedex_challenge/src/features/configuration/ui/widgets/update_period_dialog.dart';
 
 class PeriodSection extends StatelessWidget {
   final List<PeriodEntity> periods;
@@ -36,6 +37,14 @@ class PeriodSection extends StatelessWidget {
                       color: Colors.transparent,
                       child: Card(
                         child: ListTile(
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) => UpdateFormDialog(
+                                period: periods[index],
+                              ),
+                            );
+                          },
                           shape: RoundedRectangleBorder(
                             side: const BorderSide(color: Colors.black, width: 0.3),
                             borderRadius: BorderRadius.circular(9),
