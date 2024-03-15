@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class AlertDataSection extends StatefulWidget {
-  // final Function(DateTime, DateTime, String) onSubmitData;
+  final Function(DateTime?, DateTime?, String?) onSubmitData;
 
   const AlertDataSection({
     super.key,
-    // required this.onSubmitData,
+    required this.onSubmitData,
   });
 
   @override
@@ -29,8 +30,8 @@ class _AlertDataSectionState extends State<AlertDataSection> {
             const Spacer(),
             GestureDetector(
               onTap: () => _selectDate(true, context),
-              child: Text(startDate?.toString() ?? "Selecionar data"),
-            ),
+              child: Text(startDate != null ? DateFormat("dd/MM/yyyy").format(startDate!) : "Selecionar data"),
+            )
           ],
         ),
         const SizedBox(height: 8),
@@ -42,7 +43,7 @@ class _AlertDataSectionState extends State<AlertDataSection> {
             const Spacer(),
             GestureDetector(
               onTap: () => _selectDate(false, context),
-              child: Text(endDate?.toString() ?? "Selecionar data"),
+              child: Text(endDate != null ? DateFormat("dd/MM/yyyy").format(endDate!) : "Selecionar data"),
             ),
           ],
         ),
@@ -88,6 +89,7 @@ class _AlertDataSectionState extends State<AlertDataSection> {
         } else {
           endDate = picked;
         }
+        widget.onSubmitData(startDate, endDate, selectedCategory);
       });
     }
   }

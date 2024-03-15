@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TextGoalField extends StatelessWidget {
-  const TextGoalField({Key? key}) : super(key: key);
+  final Function(String?) onValueChanged;
+
+  const TextGoalField({Key? key, required this.onValueChanged}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class TextGoalField extends StatelessWidget {
             }
             return null;
           },
+          onChanged: (value) => onValueChanged(value),
         ),
       ),
     );

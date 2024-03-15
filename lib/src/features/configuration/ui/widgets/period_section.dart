@@ -21,19 +21,21 @@ class PeriodSection extends StatelessWidget {
             borderRadius: BorderRadius.circular(9),
             color: const Color(0xFFF5F6FA),
           ),
-          child: ListView.builder(
-            itemCount: periods.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(
-                  periods[index].name,
-                  style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          child: periods.isEmpty
+              ? const Center(child: Text("Não há períodos registrados"))
+              : ListView.builder(
+                  itemCount: periods.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(
+                        periods[index].name,
+                        style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      textColor: Colors.white,
+                      tileColor: Colors.white,
+                    );
+                  },
                 ),
-                textColor: Colors.white,
-                tileColor: Colors.white,
-              );
-            },
-          ),
         ),
         Align(
           alignment: Alignment.centerRight,
@@ -44,7 +46,9 @@ class PeriodSection extends StatelessWidget {
                 builder: (context) => const PeriodFormDialog(),
               );
             },
-            style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFF0F278B))),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFF0F278B)),
+            ),
             child: const Text(
               "Adicionar Periodo",
               style: TextStyle(color: Colors.white),
