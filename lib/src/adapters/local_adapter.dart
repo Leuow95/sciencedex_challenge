@@ -1,5 +1,5 @@
 abstract class LocalAdapter {
-  Future get();
+  Future get(String key);
   Future save();
   Future update();
   Future delete();
