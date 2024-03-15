@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sciencedex_challenge/src/features/configuration/entities/period_entity.dart';
 import 'package:sciencedex_challenge/src/features/configuration/ui/controller/configuration_controller.dart';
+import 'package:sciencedex_challenge/src/features/configuration/ui/widgets/cancel_button.dart';
 import 'package:sciencedex_challenge/src/features/configuration/ui/widgets/goal_section.dart';
 
 import 'add_period_button.dart';
@@ -79,6 +80,7 @@ class _UpdateFormDialog extends State<UpdateFormDialog> {
           ),
         ),
         actions: [
+          CancelButton(onSubmit: () => _onPop),
           AddPeriodButton(onSubmit: () => onSubmit),
         ],
         actionsAlignment: MainAxisAlignment.center,
@@ -96,5 +98,9 @@ class _UpdateFormDialog extends State<UpdateFormDialog> {
       goal2: goal2,
       category: selectedCategory,
     ));
+  }
+
+  _onPop() {
+    Modular.to.pop();
   }
 }
